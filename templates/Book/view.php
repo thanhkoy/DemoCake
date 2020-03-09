@@ -17,7 +17,7 @@
     <div class="column-responsive column-80">
         <div class="book view content">
             <h3><?= h($book->name) ?></h3>
-            <table>
+            <!-- <table>
                 <tr>
                     <th><?= __('Name') ?></th>
                     <td><?= h($book->name) ?></td>
@@ -26,12 +26,12 @@
                     <th><?= __('Id') ?></th>
                     <td><?= $this->Number->format($book->id) ?></td>
                 </tr>
-            </table>
+            </table> -->
             <div class="related">
-                <h4><?= __('Related Category') ?></h4>
+                <h4><?= __('Category:') ?></h4>
                 <?php if (!empty($book->category)) : ?>
                 <div class="table-responsive">
-                    <table>
+                    <!-- <table>
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Name') ?></th>
@@ -48,7 +48,10 @@
                             </td>
                         </tr>
                         <?php endforeach; ?>
-                    </table>
+                    </table> -->
+                        <?php foreach ($book->category as $category) : ?>
+                            <span class="badge badge-pill badge-primary"><?= h($category->name) ?></span>
+                        <?php endforeach; ?>
                 </div>
                 <?php endif; ?>
             </div>
